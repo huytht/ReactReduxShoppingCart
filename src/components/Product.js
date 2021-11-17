@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { actFetchProductsRequest, AddCart } from "../actions";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { connect } from "react-redux";
 export class Product extends Component {
   constructor(props) {
@@ -20,22 +21,23 @@ export class Product extends Component {
               {_products.map((item, index) => (
                 <div
                   key={index}
-                  className="col-md-2"
+                  className="col-md-3"
                   style={{ marginBottom: "10px" }}
                 >
-                  <img
+                  <LazyLoadImage
                     src={item.image}
                     className="img-resposive"
-                    style={{ width: "100%", height: "100px" }}
+                    style={{ width: "90%", height: "150px" }}
+                    placeholderSrc={`${process.env.PUBLIC_URL}/default.png`}
                   />
                   <h5>{item.name}</h5>
                   <h6>{item.price}$</h6>
                   <span
                     className="badge badge-primary"
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", fontSize: '15px' }}
                     onClick={() => this.props.AddCart(item)}
                   >
-                    Add Cart
+                    Add To Cart
                   </span>
                 </div>
               ))}

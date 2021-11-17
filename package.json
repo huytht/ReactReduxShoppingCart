@@ -17,6 +17,7 @@
     "jsx-runtime": "",
     "react": "",
     "react-dom": "16.13.1",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-redux": "7.2.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",

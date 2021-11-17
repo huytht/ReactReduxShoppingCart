@@ -34,7 +34,7 @@ function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
                     ListCart.map((item,key)=>{
                         return(
                             <tr key={key}>    
-                            <td><i className="badge badge-danger" onClick={()=>DeleteCart(key)}>X</i></td>
+                            <td><i className="badge badge-danger" style={{ cursor: "pointer" }} onClick={()=>DeleteCart(key)}>X</i></td>
                             <td>{item.name}</td>
                             <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
                             <td>{item.price} $</td>

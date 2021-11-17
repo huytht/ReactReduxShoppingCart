@@ -24,18 +24,16 @@ export class Header extends Component {
     render() {
         return (
             <Container>
-             <div className="row">
-             </div>
-            <Title>E-Shoping</Title>
-            <Nav>
-                <Link to="/"style={{fontWeight:'bold',textDecoration:'none'}}>Products</Link>
-                <Link to="/Intro"style={{fontWeight:'bold',textDecoration:'none',justifyContent:'center',flex:1,display:'flex',marginLeft:'300px'}}>Intro</Link>
-                <Link to="/carts" style={{flex:1,display:'flex',justifyContent:'flex-end'}}>
-                    <Badge badgeContent={this.props.numberCart} color="primary" style={{justifyContent:'flex-end'}}>
-                        <ShoppingCartOutlined />
-                    </Badge>
-                </Link>
-            </Nav>
+                <Title>E-Shoping</Title>
+                <Nav style={{ fontSize: '25px' }}>
+                    <Link to="/"style={{fontWeight:'bold',textDecoration:'none'}}>Products</Link>
+                    <Link to="/Intro"style={{fontWeight:'bold',textDecoration:'none',justifyContent:'center',flex:1,display:'flex',marginLeft:'300px'}}>Introduction</Link>
+                    <Link to="/carts" style={{flex:1,display:'flex',justifyContent:'flex-end'}}>
+                        <Badge badgeContent={this.props.numberCart} color="primary" style={{justifyContent:'flex-end'}}>
+                            <ShoppingCartOutlined style={{ fontSize: '35px' }} />
+                        </Badge>
+                    </Link>
+                </Nav>
             </Container>
         )
     }
