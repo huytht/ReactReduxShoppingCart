@@ -39,9 +39,9 @@ function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
                             <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
                             <td>{item.price} $</td>
                             <td>
-                                    <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>DecreaseQuantity(key)}>-</span>
+                                    <span className="btn btn-secondary" style={{margin:'2px',}} onClick={()=>DecreaseQuantity(key)}>-</span>
                                     <span className="btn btn-info">{item.quantity}</span>
-                                    <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>IncreaseQuantity(key)}>+</span>
+                                    <span className="btn btn-secondary" style={{margin:'2px'}} onClick={()=>IncreaseQuantity(key)}>+</span>
                             </td>
                             <td>{ TotalPrice(item.price,item.quantity)} $</td>
                         </tr>
