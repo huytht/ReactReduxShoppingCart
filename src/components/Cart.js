@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import {IncreaseQuantity,DecreaseQuantity,DeleteCart} from '../actions';
+import {IncreaseQuantity,DecreaseQuantity,DeleteCart,DeleteAllCart} from '../actions';
 
-function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
-  //  console.log(items)
+function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart,DeleteAllCart}){
     let ListCart = [];
     let TotalCart=0;
     Object.keys(items.Carts).forEach(function(item){
@@ -34,17 +33,17 @@ function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
                     ListCart.map((item,key)=>{
                         return(
                             <tr key={key}>    
-                            <td><i className="badge badge-danger" style={{ cursor: "pointer" }} onClick={()=>DeleteCart(key)}>X</i></td>
-                            <td>{item.name}</td>
-                            <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
-                            <td>{item.price} $</td>
-                            <td>
-                                    <span className="btn btn-secondary" style={{margin:'2px',}} onClick={()=>DecreaseQuantity(key)}>-</span>
-                                    <span className="btn btn-info">{item.quantity}</span>
-                                    <span className="btn btn-secondary" style={{margin:'2px'}} onClick={()=>IncreaseQuantity(key)}>+</span>
-                            </td>
-                            <td>{ TotalPrice(item.price,item.quantity)} $</td>
-                        </tr>
+                                <td><i className="badge badge-danger" style={{ cursor: "pointer" }} onClick={()=>DeleteCart(key)}>X</i></td>
+                                <td>{item.name}</td>
+                                <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
+                                <td>{item.price} $</td>
+                                <td>
+                                        <span className="btn btn-secondary" style={{margin:'2px',}} onClick={()=>DecreaseQuantity(key)}>-</span>
+                                        <span className="btn btn-info">{item.quantity}</span>
+                                        <span className="btn btn-secondary" style={{margin:'2px'}} onClick={()=>IncreaseQuantity(key)}>+</span>
+                                </td>
+                                <td>{ TotalPrice(item.price,item.quantity)} $</td>
+                            </tr>
                         )
                     })
                         
@@ -52,6 +51,9 @@ function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
                 <tr>
                     <td colSpan="5">Total Carts</td>
                     <td>{Number(TotalCart).toLocaleString('en-US')} $</td>
+                </tr>
+                <tr>
+                <td><i className="badge badge-danger" style={{ cursor: "pointer" }} onClick={()=>DeleteAllCart()}>Clear all cart</i></td>
                 </tr>
                 </tbody>
               
@@ -61,10 +63,9 @@ function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart}){
     )
 }
 const mapStateToProps = state =>{
-  //  console.log(state)
     return{
         items:state._todoProduct
     }
 }
 
-export default connect(mapStateToProps,{IncreaseQuantity,DecreaseQuantity,DeleteCart})(Cart)
+export default connect(mapStateToProps,{IncreaseQuantity,DecreaseQuantity,DeleteCart,DeleteAllCart})(Cart)

@@ -27,11 +27,13 @@ export class Product extends Component {
                   <LazyLoadImage
                     src={item.image}
                     className="img-resposive"
-                    style={{ width: "90%", height: "150px" }}
-                    placeholderSrc={`${process.env.PUBLIC_URL}/default.png`}
+                    alt=""
+                    width="90%" 
+                    height="200px"
+                    placeholderSrc={`${process.env.PUBLIC_URL}default.png`}
                   />
                   <h5>{item.name}</h5>
-                  <h6>{item.price}$</h6>
+                  <h5>Price: {item.price}$</h5>
                   <span
                     className="badge badge-primary"
                     style={{ cursor: "pointer", fontSize: '15px' }}

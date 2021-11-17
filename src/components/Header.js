@@ -28,10 +28,11 @@ export class Header extends Component {
                 <Nav style={{ fontSize: '25px' }}>
                     <Link to="/"style={{fontWeight:'bold',textDecoration:'none'}}>Products</Link>
                     <Link to="/Intro"style={{fontWeight:'bold',textDecoration:'none',justifyContent:'center',flex:1,display:'flex',marginLeft:'300px'}}>Introduction</Link>
-                    <Link to="/carts" style={{flex:1,display:'flex',justifyContent:'flex-end'}}>
+                    <Link to="/carts" style={{flex:1,display:'flex',justifyContent:'flex-end',textDecoration:'none'}}>
                         <Badge badgeContent={this.props.numberCart} color="primary" style={{justifyContent:'flex-end'}}>
                             <ShoppingCartOutlined style={{ fontSize: '35px' }} />
                         </Badge>
+                        &nbsp;Total Price: {Number(this.props.totalCart).toLocaleString('en-US')}$
                     </Link>
                 </Nav>
             </Container>
@@ -39,8 +40,13 @@ export class Header extends Component {
     }
 }
 const mapStateToProps = state => {
+    let TotalCart=0;
+    Object.keys(state._todoProduct.Carts).forEach(function(item){
+        TotalCart+=state._todoProduct.Carts[item].quantity * state._todoProduct.Carts[item].price;
+    });
     return {
-        numberCart: state._todoProduct.numberCart
+        numberCart: state._todoProduct.numberCart,
+        totalCart: TotalCart
     }
 }
 export default connect(mapStateToProps, null)(Header)
