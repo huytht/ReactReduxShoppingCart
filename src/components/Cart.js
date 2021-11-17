@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from "react-redux";
 import {IncreaseQuantity,DecreaseQuantity,DeleteCart,DeleteAllCart} from '../actions';
 
@@ -35,7 +35,7 @@ function Cart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart,DeleteAllCart}
                             <tr key={key}>    
                                 <td><i className="badge badge-danger" style={{ cursor: "pointer" }} onClick={()=>DeleteCart(key)}>X</i></td>
                                 <td>{item.name}</td>
-                                <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
+                                <td><img alt="" src={item.image} style={{width:'100px',height:'80px'}}/></td>
                                 <td>{item.price} $</td>
                                 <td>
                                         <span className="btn btn-secondary" style={{margin:'2px',}} onClick={()=>DecreaseQuantity(key)}>-</span>
