@@ -24,7 +24,7 @@ export class Header extends Component {
     render() {
         return (
             <Container>
-                <Title>E-Shoping</Title>
+                <Title>E-Shopping</Title>
                 <Nav style={{ fontSize: '25px' }}>
                     <Link to="/"style={{fontWeight:'bold',textDecoration:'none'}}>Products</Link>
                     <Link to="/Intro"style={{fontWeight:'bold',textDecoration:'none',justifyContent:'center',flex:1,display:'flex',marginLeft:'300px'}}>Introduction</Link>
